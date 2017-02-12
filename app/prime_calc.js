@@ -1,20 +1,27 @@
-/*
-Write a getPrimes function that takes an integer value n as
-argument and generates prime numbers from 0 to n with
-asymptotic analysis. The generated prime numbers should
-be in an array. Your logic should be as efficient as possible
-(with minimal iterations).
-*/
 
-const calcPrime = function getPrimes(n) {
+function getPrimes(n) {
+  var prime_array = [];
+  
+  for (var numb = 1; numb <= n; numb++) {
+    checkPrime(numb);
+    
+    if (checkPrime(numb) === false) {
+      prime_array.push(numb);
 
-	var prime_array = [];
-	/*
-	prime_number p is when only p % p = 0 
+    }
+  }
+  
+  return prime_array;
+}
 
-	*/
-	for (var i = 2; i <= n; i++) {
-		if 
-	}
 
+
+function checkPrime(count) {
+  var notPrime = false;
+  for (var i = 2; i <= count; i++) {
+    if (count % i === 0 && i !== count) {
+      notPrime = true;
+    }
+  }
+  return notPrime;
 }
