@@ -55,7 +55,7 @@ function valueSize(number) {
 }
 
 /*
-Function to check if an array has up to 3 indexes
+Function to check if an array has up to 3 indices
 and return the value of the third index
 */
 
@@ -69,3 +69,4 @@ function isArray(array) {
 }
 
 exports.dataTypes = dataTypes;
+
