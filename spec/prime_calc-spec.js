@@ -1,3 +1,7 @@
+var myApp = require('../app/prime_calc.js');
+
+"use strict"
+
 (function(){
   'use strict';
   describe("Prime Checker", function() {

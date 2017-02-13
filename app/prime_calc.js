@@ -25,3 +25,5 @@ function checkPrime(count) {
   }
   return notPrime;
 }
+
+exports.getPrimes = getPrimes;
