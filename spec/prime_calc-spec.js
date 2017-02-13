@@ -2,40 +2,46 @@ var myApp = require('../app/prime_calc.js');
 
 "use strict"
 
-(function(){
-  'use strict';
-  describe("Prime Checker", function() {
-    it("should be defined", function() {
-      expect(PrimeChecker).toBeDefined();
+
+describe("Data types tests ", function() {
+  describe("Case for some falsy values", function() {
+
+    it("should return true for 41", function() {
+      expect(myApp.getPrimes(41)).toEqual('no value');
     });
 
-    it("should be a typeof function", function() {
-      expect(typeof PrimeChecker).toBe(typeof (function(){}));
+    it("should return 'no value' for undefined", function() {
+      expect(myApp.dataTypes(undefined)).toEqual('no value');
     });
 
-    it('should return true for 41', function() {
-      var prime = new PrimeChecker('41');
-      expect(prime.isPrime()).toBe(true);
-    });
-
-    it('should return false for 68', function() {
-      var prime = new PrimeChecker('68');
-      expect(prime.isPrime()).toBe(false);
-    });
-
-    it('should return true for 3', function() {
-      var prime = new PrimeChecker('3');
-      expect(prime.isPrime()).toBe(true);
-    });
-
-    it('should return false for ""', function() {
-      var prime = new PrimeChecker('');
-      expect(prime.isPrime()).toBe(false);
-    });
-
-    it('should return true for 9973', function() {
-      var prime = new PrimeChecker('9973');
-      expect(prime.isPrime()).toBe(true);
-    });
   });
-})();
+
+  describe("Case for booleans", function() {
+
+    it("should return true for `true`", function() {
+      expect(myApp.dataTypes(true)).toBe(true);
+    });
+
+    it("should return false for `false`", function() {
+      expect(myApp.dataTypes(false)).toBe(false);
+    });
+
+  });
+
+  describe("Case for Numbers", function() {
+
+    it("should return 'less than 100' for 44", function() {
+      expect(myApp.dataTypes(44)).toBe('less than 100');
+    });
+
+    it("should return 'more than 100' for 144", function() {
+      expect(myApp.dataTypes(144)).toBe('more than 100');
+    });
+
+    it("should return 'equal to 100' for 100", function() {
+      expect(myApp.dataTypes(100)).toBe('equal to 100');
+    });
+
+
+  });
+();
