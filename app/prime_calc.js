@@ -2,7 +2,8 @@
 function getPrimes(n) {
   var prime_array = [];
   
-  for (var numb = 1; numb <= n; numb++) {
+  // Loop from 2 to n
+  for (var numb = 2; numb <= n; numb++) {
     checkPrime(numb);
     
     if (checkPrime(numb) === false) {

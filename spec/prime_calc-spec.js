@@ -3,45 +3,41 @@ var myApp = require('../app/prime_calc.js');
 "use strict"
 
 
-describe("Data types tests ", function() {
-  describe("Case for some falsy values", function() {
+describe("Array containing prime number generation tests ", function() {
+  describe("Case for array of consecutive positive prime numbers", function() {
 
-    it("should return true for 41", function() {
-      expect(myApp.getPrimes(41)).toEqual('no value');
+    it("should return [2, 3, 5, 7, 11, 13, 17, 19] for 20", function() {
+      expect(myApp.getPrimes(20)).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
+    })
+
+    it("should return [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97] for 100", function() {
+      expect(myApp.getPrimes(100)).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]);
+    })
+
+    it("should return '[]' for 1", function() {
+      expect(myApp.getPrimes(1)).toEqual([]);
     });
 
-    it("should return 'no value' for undefined", function() {
-      expect(myApp.dataTypes(undefined)).toEqual('no value');
+    it("should return [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67 ] for 68", function() {
+      expect(myApp.getPrimes(68)).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67]);
+    });
+
+    it("should return [2, 3, 5, 7] for 7", function() {
+      expect(myApp.getPrimes(7)).toEqual([2, 3, 5, 7]);
+    })
+
+  });
+
+  describe("Case for negative and invalid inputs", function() {
+
+    it("should return [] for 0", function() {
+      expect(myApp.getPrimes(0)).toEqual([]);
+    });
+
+    it("should return [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67 ] for 68", function() {
+      expect(myApp.getPrimes('55')).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]);
     });
 
   });
 
-  describe("Case for booleans", function() {
-
-    it("should return true for `true`", function() {
-      expect(myApp.dataTypes(true)).toBe(true);
-    });
-
-    it("should return false for `false`", function() {
-      expect(myApp.dataTypes(false)).toBe(false);
-    });
-
-  });
-
-  describe("Case for Numbers", function() {
-
-    it("should return 'less than 100' for 44", function() {
-      expect(myApp.dataTypes(44)).toBe('less than 100');
-    });
-
-    it("should return 'more than 100' for 144", function() {
-      expect(myApp.dataTypes(144)).toBe('more than 100');
-    });
-
-    it("should return 'equal to 100' for 100", function() {
-      expect(myApp.dataTypes(100)).toBe('equal to 100');
-    });
-
-
-  });
-();
+})
