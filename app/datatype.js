@@ -1,12 +1,14 @@
 function dataType(args) {
 	var return_var;
-	if (string) {
+	if (args.constructor === String) {
 		return_var = args.length;
-	} else if (typeof(args) === "boolean") {
+	} else if (args.constructor === Boolean) {
 		return_var = args;
-	} else if (typeof(args) === "number") {
+	} else if (args.constructor === Number) {
 		return_var = valueSize(args);
-	}
+	} else if (args.constructor === Array) {
+		return_var = isArray(args);
+	} else
 }
 
 function valueSize(number) {
@@ -27,5 +29,5 @@ function isArray(array) {
 	} else {
 		return_index = "undefined";
 	}
-	return i
+	return return_index;
 }
